@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Login Page</title>
+        <link rel="stylesheet" href="/common_lib/bootstrap-4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/common_lib/common_styles.css">
+        
+        <meta name="google-signin-client_id" content="898196923815-meqm47fbcf3pe33tet8q9joovc2luabh.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        
+
+    </head>
+
+    <body>
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+
+                <!-- Tabs Titles -->
+
+                <!-- Icon -->
+                <div class="fadeIn first">
+                    <span> User Login </span>
+                </div>
+                <div class="display-4">
+                        <span> Logged-in Successfully </span>
+                    </div>
+
+                <!-- Login Form -->
+                <form method="POST" action="/homepage.html">
+                    <div class="data">
+                    <input type="text" id="login" class="fadeIn second" name="username"
+                        placeholder="Enter Username">
+                    <input type="password" id="password" class="fadeIn third" name="password"
+                        placeholder="Enter Password">
+                    <input type="submit" class="fadeIn fourth" value="Log In">
+                </div>
+
+                    <h6>OR</h6>
+                    
+
+                    
+                    <div class="g-signin2" data-onsuccess="onSignIn" align="center"></div>
+                        
+                    <script>
+                      function onSignIn(googleUser) {
+                            // Useful data for your client-side scripts:
+                            window.location = 'http://localhost:3000/success';
+                            
+                      }
+                    
+                    </script>
+                    
+                    <br>
+                    <div class="lonely">
+
+                    <a href="#" onclick="signOut();"><b>Sign out</b></a>
+                    
+                    </div>
+                    <br>
+                    <script>
+                    function signOut() {
+                        var auth2 = gapi.auth2.getAuthInstance();
+                        $(".data").css("display","block");
+                        
+                        auth2.signOut().then(function () {
+                        alert('User signed out.');
+                        });
+                    }
+                    </script>
+                </form>
+
+                <br>
+                    
+                <!-- Remind Passowrd -->
+                <div id="formFooter">
+                    <a class="underlineHover" href="#">Forgot Password?</a>
+                </div>
+            </div>
+        </div>
+
+        <script src="/common_lib/jquery-3.3.1.min.js"></script>
+        <script src="/common_lib/popper.min.js"></script>
+        <script src="/common_lib/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+    </body>
+
+</html>
